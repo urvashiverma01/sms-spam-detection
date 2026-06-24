@@ -10,7 +10,9 @@ nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
 
 # Train model on startup
-df = pd.read_csv(r'D:\python programming\venv\SMSSpamCollection', sep='\t', header=None, names=['label', 'message'])
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+df = pd.read_csv(os.path.join(BASE_DIR, 'SMSSpamCollection'), sep='\t', header=None, names=['label', 'message'])
 
 def clean_text(text):
     text = text.lower()
